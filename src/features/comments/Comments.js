@@ -18,6 +18,11 @@ const Comments = () => {
 
   // Dispatch loadCommentsForArticleId with useEffect here.
 
+  useEffect(()=> {
+    dispatch(loadCommentsForArticleId())
+  }, [dispatch]
+  )
+
   if (commentsAreLoading) return <div>Loading Comments</div>;
   if (!article) return null;
 
