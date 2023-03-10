@@ -23,13 +23,20 @@ const Comments = () => {
   }, [dispatch]
   )
 
+  const commentsForArticleId = (article) => {
+    if (article === undefined){
+    return [];
+    }
+    return article[article.id]
+  }
+
   if (commentsAreLoading) return <div>Loading Comments</div>;
   if (!article) return null;
 
   return (
     <div className='comments-container'>
       <h3 className='comments-title'>Comments</h3>
-      <CommentList comments={[]} />
+      <CommentList comments={commentsForArticleId} />
       <CommentForm articleId={article.id} />
     </div>
   );
