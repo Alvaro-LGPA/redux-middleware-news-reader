@@ -17,6 +17,9 @@ export const commentsSlice = createSlice({
     name: 'comments',
     initialState: {
       // Add initial state properties here.
+      byArticleId: {},
+      isLoadingComments: false,
+      failedToLoadComments: false
     },
     // Add extraReducers here.
   });
