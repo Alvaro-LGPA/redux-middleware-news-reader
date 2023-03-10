@@ -22,6 +22,22 @@ export const commentsSlice = createSlice({
       failedToLoadComments: false
     },
     // Add extraReducers here.
+    extraReducers: {
+      [loadCommentsForArticleId.pending]: (state, action) => {
+        state.isLoadingComments = true;
+        state.failedToLoadComments = false;
+      },
+      [loadCommentsForArticleId.rejected]: (state, action) => {
+        state.isLoadingComments = false;
+        state.failedToLoadComments = true;
+      },
+      [loadCommentsForArticleId.fulfilled]: (state, action) => {
+        state.isLoadingComments = false;
+        state.failedToLoadComments = false;
+        state.byArticleId = action.payload;
+      }
+
+    }
   });
   
   export const selectComments = (state) => state.comments.byArticleId;
