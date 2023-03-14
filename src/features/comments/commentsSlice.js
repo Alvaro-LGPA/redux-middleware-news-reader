@@ -25,15 +25,15 @@ export const commentsSlice = createSlice({
 
     extraReducers: (builder) => {
       builder
-      .addCase('comment/loadComment/pending', (state,action) => {
+      .addCase(loadCommentsForArticleId.pending, (state,action) => {
         state.isLoadingComments = true;
         state.failedToLoadComments = false;
       })
-      .addCase('comment/loadComment/rejected', (state, action) => {
+      .addCase(loadCommentsForArticleId.rejected, (state, action) => {
         state.isLoadingComments = false;
         state.failedToLoadComments = true;
       })
-      .addCase('comment/loadComment/fullfiled', (state, action) => {
+      .addCase(loadCommentsForArticleId.fulfilled, (state, action) => {
         state.isLoadingComments = false;
         state.failedToLoadComments = false;
         state.byArticleId = action.payload;
@@ -41,8 +41,8 @@ export const commentsSlice = createSlice({
     }
 
 
-    /*
-    extraReducers: {
+    
+ /*    extraReducers: {
       [loadCommentsForArticleId.pending]: (state, action) => {
         state.isLoadingComments = true;
         state.failedToLoadComments = false;
@@ -57,7 +57,7 @@ export const commentsSlice = createSlice({
         state.byArticleId = action.payload;
       }
 
-    }*/
+    } */
   });
   
   export const selectComments = (state) => state.comments.byArticleId;
