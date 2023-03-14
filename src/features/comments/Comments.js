@@ -24,12 +24,16 @@ const Comments = () => {
   }, [dispatch, article]
   )
 
-  const commentsForArticleId = (article) => {
+  
+  const commentsForArticleId = article ? comments[article.id] : [];
+
+/*   const commentsForArticleId = (article) => {
     if (article === undefined){
     return [];
     }
     return comments[article.id]
-  }
+  } */
+  console.log(JSON.stringify(comments))
 
   if (commentsAreLoading) return <div>Loading Comments</div>;
   if (!article) return null;
