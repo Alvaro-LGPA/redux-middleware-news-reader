@@ -18,7 +18,7 @@ export default function CommentForm({ articleId }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label for='comment' className='label'>
+      <label htmlFor='comment' className='label'>
         Add Comment:
       </label>
       <div id='input-container'>
