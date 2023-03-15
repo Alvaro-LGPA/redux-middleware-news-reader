@@ -25,23 +25,28 @@ const Comments = () => {
   )
 
   
-  const commentsForArticleId = article ? comments[article.id] : [];
+  //const commentsForArticleId = article ? comments[article.id] : [];
 
-/*   const commentsForArticleId = (article) => {
+  const commentsForArticleId = (article) => {
     if (article === undefined){
     return [];
     }
     return comments[article.id]
-  } */
-  console.log(JSON.stringify(comments))
+  }
 
+  console.log(comments)
+  //console.log(article.id)
+  // console.log(comments)
+  // console.log(comments.comments)
+  // console.log(commentsForArticleId)
+  
   if (commentsAreLoading) return <div>Loading Comments</div>;
   if (!article) return null;
 
   return (
     <div className='comments-container'>
       <h3 className='comments-title'>Comments</h3>
-      <CommentList comments={commentsForArticleId} />
+      <CommentList comments={comments} />
       <CommentForm articleId={article.id} />
     </div>
   );
