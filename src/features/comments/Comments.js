@@ -23,8 +23,8 @@ const Comments = () => {
     dispatch(loadCommentsForArticleId(article.id))}
   }, [dispatch, article]
   )
-  
-  const commentsForArticleId = article ? comments.comments : [];
+
+  const commentsForArticleId = article ? comments[article.id] : [];
   
   if (commentsAreLoading) return <div>Loading Comments</div>;
   if (!article) return null;
