@@ -23,22 +23,8 @@ const Comments = () => {
     dispatch(loadCommentsForArticleId(article.id))}
   }, [dispatch, article]
   )
-
   
-  //const commentsForArticleId = article ? comments[article.id] : [];
-
-  const commentsForArticleId = (article) => {
-    if (article === undefined){
-    return [];
-    }
-    return comments[article.id]
-  }
-
-  console.log(comments)
-  //console.log(article.id)
-  // console.log(comments)
-  // console.log(comments.comments)
-  // console.log(commentsForArticleId)
+  const commentsForArticleId = article ? comments.comments : [];
   
   if (commentsAreLoading) return <div>Loading Comments</div>;
   if (!article) return null;
@@ -46,7 +32,7 @@ const Comments = () => {
   return (
     <div className='comments-container'>
       <h3 className='comments-title'>Comments</h3>
-      <CommentList comments={comments} />
+      <CommentList comments={commentsForArticleId} />
       <CommentForm articleId={article.id} />
     </div>
   );
