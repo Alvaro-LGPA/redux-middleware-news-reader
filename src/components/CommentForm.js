@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   createCommentIsPending,
+  postCommentForArticleId
 } from '../features/comments/commentsSlice';
 
 export default function CommentForm({ articleId }) {
@@ -13,6 +14,7 @@ export default function CommentForm({ articleId }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     // dispatch your asynchronous action here!
+    dispatch(postCommentForArticleId({articleId, comment}))
     setComment('');
   };
 
