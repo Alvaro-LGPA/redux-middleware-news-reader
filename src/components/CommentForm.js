@@ -10,7 +10,7 @@ export default function CommentForm({ articleId }) {
   const [comment, setComment] = useState('');
   
   // Declare isCreatePending here.
-
+  const isCreatePending = useSelector(createCommentIsPending)
   const handleSubmit = (e) => {
     e.preventDefault();
     // dispatch your asynchronous action here!
@@ -31,7 +31,7 @@ export default function CommentForm({ articleId }) {
           type='text'
         />
         <button
-          
+          disabled = {isCreatePending}
           className='comment-button'
         >
           Submit
