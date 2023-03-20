@@ -59,7 +59,6 @@ export const commentsSlice = createSlice({
       .addCase(postCommentForArticleId.fulfilled, (state, action) => {
         state.createCommentIsPending = false;
         state.failedToCreateComment = false;
-        debugger;
         state.byArticleId[action.payload.articleId].push(action.payload);
 
       })
